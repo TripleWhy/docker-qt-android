@@ -15,13 +15,13 @@ ENV CMAKE_PREFIX_PATH    "${QT_DIR}"
 ENV CMAKE_FIND_ROOT_PATH "${QT_DIR}"
 
 ENV ANDROID_SDK_VERSION         29
-ENV ANDROIC_NDK_VERSION         21.4.7075529
+ENV ANDROID_NDK_VERSION         21.4.7075529
 ENV ANDROID_BUILD_TOOLS_VERSION 30.0.3
 ENV ANDROID_HOME                "/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME            "${ANDROID_HOME}"
 ENV ANDROID_SDK_ROOT            "${ANDROID_HOME}"
 ENV ANDROID_SDK                 "${ANDROID_HOME}"
-ENV ANDROID_NDK                 "${ANDROID_HOME}/ndk/${ANDROIC_NDK_VERSION}"
+ENV ANDROID_NDK                 "${ANDROID_HOME}/ndk/${ANDROID_NDK_VERSION}"
 ENV ANDROID_NDK_ROOT            "${ANDROID_NDK}"
 ENV ANDROID_NDK_MAKE            "${ANDROID_NDK}/prebuilt/linux-x86_64/bin/make"
 
@@ -49,7 +49,7 @@ RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "platform-tools"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "platforms;android-${ANDROID_SDK_VERSION}"
-RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "ndk;${ANDROIC_NDK_VERSION}"
+RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "ndk;${ANDROID_NDK_VERSION}"
 
 WORKDIR "${QT_DIR}"
 RUN pip3 install aqtinstall
