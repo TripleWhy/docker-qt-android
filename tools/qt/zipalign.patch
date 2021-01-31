@@ -1,0 +1,10 @@
+--- Qt5AndroidSupport.cmake~	2021-01-30 23:03:15.337729023 +0100
++++ Qt5AndroidSupport.cmake	2021-01-30 23:33:59.727186612 +0100
+@@ -57,6 +57,7 @@
+   "qml-root-path": "@CMAKE_CURRENT_SOURCE_DIR@",
+   "qt": "@QT_DIR@",
+   "sdk": "@ANDROID_SDK@",
++  "sdkBuildToolsRevision": "@ANDROID_SDK_BUILD_TOOLS_REVISION@",
+   "stdcpp-path": "@ANDROID_TOOLCHAIN_ROOT@/sysroot/usr/lib/",
+   "tool-prefix": "llvm",
+   "toolchain-prefix": "llvm",
