@@ -37,6 +37,7 @@ RUN apt-get update -yqq && \
     apt-get install -y curl expect git openjdk-11-jdk wget unzip python3-pip ninja-build cmake && \
     apt-get autoremove && \
     apt-get clean
+RUN pip3 install aqtinstall
 
 COPY tools /opt/tools
 COPY licenses /opt/licenses
@@ -52,7 +53,6 @@ RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "platforms;android-${ANDR
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "ndk;${ANDROID_NDK_VERSION}"
 
 WORKDIR "${QT_DIR}"
-RUN pip3 install aqtinstall
 RUN python3 -m aqt install -O "${QT_HOME}" "${QT_VERSION}" "${QT_HOST}" "${QT_TARGET}"
 RUN patch "${QT_DIR}/lib/cmake/Qt5Core/Qt5AndroidSupport.cmake" < "/opt/tools/qt/zipalign.patch"
 RUN git clone --depth 1 "https://github.com/KDAB/android_openssl.git" "${ANDROID_HOME}/android_openssl"
