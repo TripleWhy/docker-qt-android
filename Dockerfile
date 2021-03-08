@@ -15,7 +15,7 @@ ENV CMAKE_PREFIX_PATH    "${QT_DIR}"
 ENV CMAKE_FIND_ROOT_PATH "${QT_DIR}"
 
 ENV ANDROID_SDK_VERSION         30
-ENV ANDROID_NDK_VERSION         21.4.7075529
+ENV ANDROID_NDK_VERSION         22.0.7026061
 ENV ANDROID_BUILD_TOOLS_VERSION 30.0.3
 ENV ANDROID_HOME                "/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME            "${ANDROID_HOME}"
@@ -47,8 +47,8 @@ RUN groupadd android && useradd -d "${ANDROID_HOME}" -g android android
 RUN "/opt/tools/entrypoint.sh" built-in
 
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
-RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "platform-tools"
+RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "build-tools;${ANDROID_BUILD_TOOLS_VERSION}"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "platforms;android-${ANDROID_SDK_VERSION}"
 RUN ${ANDROID_HOME}/cmdline-tools/tools/bin/sdkmanager "ndk;${ANDROID_NDK_VERSION}"
 
